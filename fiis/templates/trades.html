@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+    <h2>LISTA DE TRANSAÇÔES</h2>
+    {% if trades %}
+        <ul>
+            {% for trade in trades %}
+                <p>{{ trade.date}}</p>
+                <p>{{ trade.amount}}</p>
+                <p>{{ trade.price}}</p>
+                <p>{{ trade.total_trade}}</p>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>{{ fii.name }} não possui transações.</h2>
+    {% endif %}
+    <p></p>
+
+</div>
+
+{% endblock %}
