@@ -4,8 +4,8 @@
 {% block content %}
 
 <!-- Tabela de Dados -->
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
+<div class="table-responsive rounded ">
+    <table class="table table-dark table-striped table-md  ">
         <thead>
             <tr>
                 <th>#</th>
@@ -13,6 +13,7 @@
                 <th>Quantidade</th>
                 <th>Preço médio</th>
                 <th>Total</th>
+                <th>Adiconar</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,10 @@
                 <td><a href="{% url 'trades' pk=fii.pk %}">{{fii.name}}</a></td>
                 <td>{{fii.total_amount}}</td>
                 <td>$150.00</td>
+                <td></td>
+                <td>
+                    <a href="{% url 'trades' pk=fii.pk %}"><button>+</button></a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

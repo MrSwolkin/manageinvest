@@ -17,10 +17,14 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from fiis.views import fii_views, trade_views
+from fiis.views import FiiListView, TradeDeleteView, TradesListView, NewTradeCreateView, FiiDetailView, TradeUpdateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("",fii_views, name="fii_list"),
-    path("trades/<int:pk>", trade_views, name="trades")
+    path("", FiiListView.as_view(), name="fii_list"),
+    path("trades/<int:pk>/", FiiDetailView.as_view(), name="trades"),
+    path("new_trade/", NewTradeCreateView.as_view(), name="new_trade"),
+    path("all_trades_list/", TradesListView.as_view(), name="all_trades_list"),
+    path("trades/<int:fii_pk>/<int:pk>/update/", TradeUpdateView.as_view(), name="trade_update"),
+    path("trade/<int:fii_pk>/<int:pk>/delete/", TradeDeleteView.as_view(), name="trade_delete"),
 ]
