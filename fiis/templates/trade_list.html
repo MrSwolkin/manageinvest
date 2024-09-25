@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<!-- Tabela de todas Transações -->
+
+<div class="table-responsive rounded">
+    <table class="table table-dark table-striped table-md">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Quantidade cotas compradas</th>
+                <th>Valor por cota</th>
+                <th>Total pago</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for trade in trades %}
+                <tr>
+                    <td>{{ trade.fii }}</td>
+                    <td>{{ trade.date }}</td>
+                    <td>{{ trade.amount }}</td>
+                    <td>R$ {{ trade.price }}</td>
+                    <td>R$ {{ trade.total_trade }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

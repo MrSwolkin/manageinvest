@@ -8,12 +8,12 @@
 
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-<body class="bg">
-
+<body class="bg-light">
     <!-- Barra de navegação superior -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Meus Investimentos</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -37,34 +37,33 @@
     </nav>
 
     <!-- Estrutura do Dashboard -->
-    <div class="container-fluid">
-        <div class="row">
+    <div class="container-fluid" >
+        <div class="row" style="height: 100%;">
             <!-- Barra lateral (Sidebar) -->
-            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+            <nav id="sidebarMenu" class=" mh-100 col-md-3 col-lg-2 d-md-block bg-dark sidebar vh-100% collapse ">
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">
                                 <i class="bi bi-house"></i>
-                                
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'fii_list' %}">
                                 <i class="bi bi-people"></i>
-                                Cadastro de FII
+                                Lista de FII
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'all_trades_list' %}">
                                 <i class="bi bi-bag"></i>
                                 Compras
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{% url 'new_trade' %}">
                                 <i class="bi bi-bar-chart"></i>
-                                Relatórios
+                                Adicionar Transação
                             </a>
                         </li>
                     </ul>
@@ -73,44 +72,47 @@
 
             <!-- Conteúdo Principal -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <!-- Exemplo de Cards de Estatísticas -->
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card text-white bg-primary mb-3">
-                    <div class="card-header">Clientes</div>
-                    <div class="card-body">
-                        <h5 class="card-title">120</h5>
-                        <p class="card-text">Total de clientes registrados</p>
+            <!-- Exemplo de Cards de Estatísticas -->
+                <div class="row" style="margin-top: 28px;">
+                    <div class="col-md-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">Total Investido</div>
+                            <div class="card-body">
+                                <h5 class="card-title">R$ 00000</h5>
+                                <p class="card-text">Total investido em Fiis</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">Compras</div>
+                            <div class="card-body">
+                                <h5 class="card-title">500</h5>
+                                <p class="card-text">Total de compras realizadas</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card text-white bg-dark mb-3">
+                            <div class="card-header">Valor atual da carteira</div>
+                            <div class="card-body">
+                                <h5 class="card-title">R$ 0000</h5>
+                                <p class="card-text">Valor atualda carteira</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-success mb-3">
-                    <div class="card-header">Compras</div>
-                    <div class="card-body">
-                        <h5 class="card-title">500</h5>
-                        <p class="card-text">Total de compras realizadas</p>
-                    </div>
+                <div class="col-md-9">
+                    <!-- Incluindo o conteúdo da página específica -->
+                    {% block content %}
+                    {% endblock %}
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card text-white bg-warning mb-3">
-                    <div class="card-header">Relatórios</div>
-                    <div class="card-body">
-                        <h5 class="card-title">35</h5>
-                        <p class="card-text">Relatórios gerados este mês</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-                <!-- Incluindo o conteúdo da página específica -->
-                {% block content %}
-                {% endblock %}
             </main>
         </div>
     </div>
     
     <!-- Bootstrap JS CDN -->
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

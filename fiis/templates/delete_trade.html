@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <h5 class="card-header">Deletar...</h5>
+        <div class="card-body">
+            <h5 class="card-title">Tem certeza que deseja deletar</h5>
+            <p class="card-text">FII: {{ object.fii.name }}</p>
+            <p class="card-text">Data: {{ object.date }}</p>
+            <p class="card-text">Tipo: {{ object.get_type_trade_display }}</p>
+            <p class="card-text">Quantidade {{ object.amount }}</p>
+            <p class="card-text">Preço: R${{ ibject.price }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Deletar Transação</button>
+                <a href="{% url 'trades' object.fii.pk %}" class="btn btn-primary">voltar</a>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

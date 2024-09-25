@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for field, errors in form.errors.items %}
+        <li>{{ field }}: {{ errors|striptags }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+<div class="card bg-dark">
+    <div class="mt-4 d-flex-inline p-5 ">
+        <form method="post" action="{% url 'trade_update' fii_pk=trade.fii.pk pk=trade.pk %}">
+            {% csrf_token %}
+            <h3>Editar Transação </h3>
+            <div class="form-control p-3 mb-3">
+                <label class="ml-3 ">Data</label>
+                {{ form.fii }}
+            </div>
+            <div class="form-control p-3 mb-3">
+                <label class="ml-3 ">Data</label>
+                {{ form.date }}
+            </div>
+            <div class="form-control p-3 mb-3">
+                <label class="ml-3 ">Tipo de transação</label>
+                {{ form.type_trade }}
+            </div>
+            <div class="form-control p-3 mb-3">
+                <label class="ml-3 ">Quantidade de cotas</label>
+                {{ form.amount }}
+            </div>
+            <div class="form-control p-3 mb-3">
+                <label class="ml-3 ">Preço</label>
+                {{ form.price }}
+            </div>
+            <button type="submit" class="btn btn-primary "> Salvar Auterações </button>
+            <a href="{% url 'all_trades_list' %}"> Cancelar  </a> 
+
+        </form>
+    </div>
+
+    {% endblock %}
