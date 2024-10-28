@@ -27,4 +27,5 @@ urlpatterns = [
     path("all_trades_list/", TradesListView.as_view(), name="all_trades_list"),
     path("trades/<int:fii_pk>/<int:pk>/update/", TradeUpdateView.as_view(), name="trade_update"),
     path("trade/<int:fii_pk>/<int:pk>/delete/", TradeDeleteView.as_view(), name="trade_delete"),
+
 ]

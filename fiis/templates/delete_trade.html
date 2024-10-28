@@ -12,10 +12,11 @@
             <p class="card-text">Preço: R${{ ibject.price }}</p>
             <form method="post">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-danger">Deletar Transação</button>
+                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Deletar Transação</button>
                 <a href="{% url 'trades' object.fii.pk %}" class="btn btn-primary">voltar</a>
             </form>
         </div>
     </div>
+
 
 {% endblock %}
