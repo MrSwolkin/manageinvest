@@ -1,10 +1,10 @@
 from django.db.models import Sum
 from django.db.models.base import Model as Model
 from django.db.models.query import QuerySet
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, render
 from django.views import View
 from django.views.generic import ListView, CreateView, DetailView, DeleteView, UpdateView
-from .models import Fii, Trade
+from .models import Fii, Trade, FiiInventory
 from .forms import TradeForm
 from django.urls import reverse_lazy
 

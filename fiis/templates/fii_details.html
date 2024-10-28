@@ -24,7 +24,7 @@
                     <td>R$ {{ trade.price }}</td>
                     <td>R$ {{ trade.total_trade }}</td>
                     <td><a href="{% url 'trade_update' fii.pk trade.pk %}" style="text-decoration: none;"><i class='bx bx-edit'></i></a></td>
-                    <td><a href="{% url 'trade_delete' fii.pk trade.pk %}" style="text-decoration: none;"><i class='bx bx-message-square-x'></i></a></td>
+                    <td><a href="{% url 'trade_delete' fii.pk trade.pk %}" style="text-decoration: none;"><i class='bx bx-message-square-x' ></i></a></td>
                 </tr>
             {% endfor %}
         </tbody>

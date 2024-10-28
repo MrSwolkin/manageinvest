@@ -13,6 +13,8 @@
                 <th>Quantidade</th>
                 <th>Preço médio</th>
                 <th>Total</th>
+                <th>Preço Atual</th>
+
                 <th>Adiconar</th>
             </tr>
         </thead>
@@ -24,6 +26,7 @@
                 <td>{{fii.total_amount}}</td>
                 <td>$150.00</td>
                 <td></td>
+                <td>função de busca [fii.name]</td>
                 <td>
                     <a href="{% url 'trades' pk=fii.pk %}"><button>+</button></a>
                 </td>

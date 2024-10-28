@@ -5,8 +5,7 @@ from django.db import models
 class Fii(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=10)
-    total_amount = models.IntegerField(blank=True, null=True)
-    
+
     def __str__(self):
         return self.name
     
@@ -36,3 +35,12 @@ class Trade(models.Model):
 
     def __str__(self) -> str:
         return f"compra de {self.amount} de {self.fii.name} em {self.date} no total de {self.total_trade}"
+    
+
+class FiiInventory(models.Model):
+    fiis_count = models.IntegerField()
+    total_amount_invested = models.FloatField()
+    
+    def __str__(self):
+        return f"{self.fiis_count} - {self.total_amount_invested}"
+        
